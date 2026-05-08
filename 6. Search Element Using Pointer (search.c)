@@ -1,0 +1,28 @@
+int main()
+{
+    int n, key, i, *ptr, found = 0;
+    printf("enter number of elements:");
+    scanf("%d", &n);
+    ptr = (int *)calloc(n, sizeof(int));
+    for(i = 0; i < n; i++){
+        printf("enter a elements:");
+        scanf("%d", ptr+i);
+    }
+    printf("enter a element to search:");
+    scanf("%d", &key);
+    for(i = 0; i < n; i++){
+        if(key == ptr[i]){
+            found = 1;
+            break;
+        }
+    }
+    if(found)
+    {
+        printf("element found at position%d\n", i+1);
+    }
+    else
+        printf("element not found");
+    free(ptr);
+    return 0;
+}
+
