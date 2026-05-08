@@ -1,0 +1,34 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<ctype.h>
+int main()
+{
+    int count = 0;
+    char buffer[100], ch;
+    FILE *fp;
+    fp = fopen("find.txt", "w");
+    if(fp == NULL){
+        printf("file doesnt exist");
+        return 1;
+    }
+    printf("enter the content");
+    scanf("%s", buffer);
+    fputs(buffer, fp);
+    fclose(fp);
+    fp = fopen("find.txt", "r");
+    if(fp == NULL){
+        printf("error opening file\n:");
+        return 1;
+    }
+    while((ch = fgetc(fp)) != EOF)
+    {
+        ch = tolower(ch);
+        if((ch=='a')||(ch=='e')||(ch=='i')||(ch=='o')||(ch=='u'))
+        {
+            count++;
+        }
+    }
+    printf("the no of vowels in file is%d", count);
+    fclose(fp);
+    return 0;
+}
