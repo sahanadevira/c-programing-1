@@ -1,0 +1,25 @@
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+    FILE *fp;
+    FILE *fp1;
+    char mystring[100];
+    fp = fopen("cse.txt", "r");
+    fp1 = fopen("mepco.txt", "w");
+    if((fp == NULL) || (fp1 == NULL))
+    {
+        printf("file doesnt exist");
+    }
+    else
+    {
+        while(fgets(mystring, 100, fp) != NULL)
+        {
+            fputs(mystring, fp1);
+        }
+        printf("file copied successfully\n");
+        fclose(fp);
+        fclose(fp1);
+        return 0;
+    }
+}
