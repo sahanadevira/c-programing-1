@@ -1,0 +1,67 @@
+#include<stdio.h>
+#include<string.h>
+struct employee
+{
+    int id;
+    char name[50];
+    char designation[50];
+    float bs, hra, da, allowance, tax, gross;
+};
+
+// payrolla.c
+#include"payroll.h"
+int main()
+{
+    struct employee e;
+    int choice;
+    // input
+    printf("Enter employee ID:");
+    scanf("%d", &e.id);
+    printf("Enter Employee name:");
+    scanf("%s", e.name);
+    printf("\n choose designation:\n");
+    printf("1.Manager\n2.Assistant Manager\n3.Clerk\n");
+    printf("Enter choice:");
+    scanf("%d", &choice);
+    printf("Enter basic salary:");
+    scanf("%f", &e.bs);
+    // Switch case for respective designation
+    switch(choice){
+        case 1:
+            strcpy(e.designation, "manager");
+            e.hra = 0.25 * e.bs;
+            e.da  = 0.18 * e.bs;
+            e.tax = 0.12 * e.bs;
+            e.allowance = 3910;
+            break;
+        case 2:
+            strcpy(e.designation, "Assistant Manager");
+            e.hra = 0.20 * e.bs;
+            e.da  = 0.15 * e.bs;
+            e.tax = 0.09 * e.bs;
+            e.allowance = 3500;
+            break;
+        case 3:
+            strcpy(e.designation, "clerk");    
+            e.hra = 0.15 * e.bs;
+            e.da  = 0.11 * e.bs;
+            e.tax = 0.07 * e.bs;
+            e.allowance = 2750;
+            break;
+        default:
+            printf("Invalid choice\n");
+            return 0;
+    }
+    // Gross salary calculation
+    e.gross = e.bs + e.hra + e.da + e.allowance - e.tax;
+    // output
+    printf("\n--------Employee details ------------");
+    printf("ID:%d\nName:%s\nDesignation:%s\n"
+           "Basic salary:%.2f\nHRA:%.2f\nDA:%.2f\n"
+           "Allowance:%.2f\nTax:%.2f\nGross:%.2f\n",
+           e.id, e.name, e.designation,
+           e.bs, e.hra, e.da,
+           e.allowance, e.tax, e.gross);
+    return 0;
+}
+
