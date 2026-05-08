@@ -1,0 +1,13 @@
+#include<stdio.h>
+void main()
+{
+    int arr[5] = {10, 20, 30, 40, 50};
+    int *ptr, i;
+    ptr = arr;
+    printf("accessing array element using pointers:\n");
+    for(i = 0; i < 5; i++)
+    {
+        printf("elements %d:value=%d,address=%d\n",
+               i+1, *(ptr+i), (ptr+i));
+    }
+}
