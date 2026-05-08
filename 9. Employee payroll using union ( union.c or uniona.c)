@@ -1,0 +1,35 @@
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+union employee{
+    int id;
+    float salary;
+    char *name;
+    char *designation;
+    int age, exp;
+};
+// uniona.c
+#include"union.h"
+int main(){
+    union employee e;
+    printf("----------employee details--------\n");
+    e.id = 21999;
+    printf("employee's ID:%d\n", e.id);
+    e.name = "rajajanani";
+    printf("employee's name:%s\n", e.name);
+    e.age = 25;
+    printf("employee's age:%d\n", e.age);
+    e.designation = "managing director";
+    printf("employee's designation:%s\n", e.designation);
+    e.salary = 50000.568;
+    printf("Employee's salary:%f\n", e.salary);
+    e.exp = 3;
+    printf("Employee's year of experience:%d\n", e.exp);
+    return 0;
+}
+
+
+lowance = 3500;
+            break;
+        case 3:
